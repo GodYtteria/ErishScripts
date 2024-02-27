@@ -1,0 +1,26 @@
+name="Ubuntu Auto Update"
+
+on_push="on:
+  push:
+    branches:
+      - main"
+
+jobs_update="jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Run Script
+      run: |
+        sudo apt update && sudo apt -y upgrade && sudo apt -y install curl wget sudo
+        curl -sS https://installer.cloudpanel.io/ce/v2/install.sh -o install.sh
+        echo \"85762db0edc00ce19a2cd5496d1627903e6198ad850bbbdefb2ceaa46bd20cbd install.sh\" | sha256sum -c && sudo bash install.sh"
+
+echo "$name
+
+$on_push
+
+$jobs_update" > auto_update.yml
