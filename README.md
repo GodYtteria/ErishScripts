@@ -1,6 +1,6 @@
 # ErishScripts
 
-#Run this on your Ubuntu_Terminal
+#Run this on yourTerminal
 
 sudo apt update && sudo apt -y upgrade && sudo apt -y install curl wget sudo && \
 curl -sS https://installer.cloudpanel.io/ce/v2/install.sh -o install.sh; \
